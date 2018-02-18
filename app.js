@@ -3,7 +3,8 @@ const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 var app = express();
-
+var staticPath = path.join(__dirname,"public");
+app.use("/public",express.static(staticPath));
 var entries = [];
 app.locals.entries = entries;
 
@@ -36,7 +37,7 @@ app.post("/new-entry",function(req,res){
 });
 
 app.use(function(req,res){
-    res.send(404).render("404");
+    res.status(404).render("404");
 });
 
 var server = http.createServer(app).listen(3000);

@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html>
-<body>
+    <head>
+        <title>Angular init</title>
+        <script src="/public/angular.js">
+        </script>
+        <script src="/public/hello-app.js">
+        </script>
+    </head>
+<body ng-app="helloapp">
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+ <div ng-controller="HelloController">
+    <p>
+        Names
+    </p>
+    <ul ng-model="names">
+        <li ng-repeat="name in names">
+            Say Hello to: {{name}}
+            <button ng-click="sayHello(name)">Say</button>
+        </li>
+    </ul>
+ </div>
 
 </body>
 </html>
